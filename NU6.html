@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup & Login Page</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif; /* Unique, elegant serif font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+            background-image: url('Images/pic5.jpg');  /* Add your background image URL here */
+            background-size: cover;  /* Ensures the background image covers the entire page */
+            background-position: center;  /* Centers the background image */
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0); /* White with 50% opacity */
+            padding: 40px;
+            border-radius: 1px;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0);
+            margin-right: 290px;
+            margin-bottom: 50px;
+            width: 350px;
+            height: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 34px; /* Reduced font size */
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-left: 5px;
+            margin-bottom: -10px;
+            margin-top: 5px;
+            font-weight: bold;
+            font-size: 16px; /* Reduced font size */
+        }
+        /* Text Input */
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 18px;
+            margin: 16px 0;
+            border: 2px solid #007bff; /* Blue border */
+            border-radius: 25px; /* Fully rounded corners */
+            font-size: 16px;
+            background-color: #d9f7ff; /* Light blue background */
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #0056b3; /* Dark blue on focus */
+            background-color: #b3e0ff; /* Darker blue background on focus */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            outline: none;
+        }
+
+        /* Password Input */
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 18px;
+            margin: 16px 0;
+            border: 2px solid #007bff; /* Blue border */
+            border-radius: 25px; /* Fully rounded corners */
+            font-size: 16px;
+            background-color: #d9f7ff; /* Light blue background */
+            transition: all 0.3s ease;
+        }
+
+        input[type="password"]:focus {
+            border-color: #0056b3; /* Dark blue on focus */
+            background-color: #b3e0ff; /* Darker blue background on focus */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            outline: none;
+        }
+
+        /* Email Input */
+        input[type="email"] {
+            width: 100%;
+            padding: 12px 18px;
+            margin: 16px 0;
+            border: 2px solid #007bff; /* Blue border */
+            border-radius: 25px; /* Fully rounded corners */
+            font-size: 16px;
+            background-color: #d9f7ff; /* Light blue background */
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]:focus {
+            border-color: #0056b3; /* Dark blue on focus */
+            background-color: #b3e0ff; /* Darker blue background on focus */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            outline: none;
+        }
+
+
+        .password-wrapper {
+            position: relative;
+        }
+        .password-wrapper input {
+            width: 100%;
+        }
+        .password-wrapper .eye-icon {
+            position: absolute;
+            right: -23px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        button {
+            width: 109%;
+            padding: 15px;
+            background: linear-gradient(135deg, #f57964 0%, #f181f5 33%, #90c6eb 66%, #d4e4f2 100%);
+            color: white;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            margin-top: 10px;
+            margin-left: 1px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #d4e4f2 0%, #90c6eb 33%, #f181f5 66%, #f57964 100%);
+            border: 2px solid #f5a623;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            width: 150px; /* Reduced logo size */
+            margin-bottom: -5px;
+            margin-top: -15px;
+        }
+        .switch {
+            margin-top: 15px;
+            font-size: 16px; /* Reduced font size */
+        }
+        .switch a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .switch a:hover {
+            text-decoration: underline;
+        }
+        .forgot-password {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .forgot-password a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            width: 500px; /* Set the width of the image container */
+            height: 500px; /* Set the height of the image container */
+            float: left;
+            margin-left: 160px;
+            margin-right: -55px;
+            margin-top: 70px;
+        }
+        .image-container img {
+            width: 100%; /* Ensure the image fills the container */
+            height: 100%;
+            object-fit: contain; /* Make sure the image covers the container without distortion */
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'); /* Example: Playfair Display */
+
+    </style>
+</head>
+<body>
+<div class="image-container">
+    <img src="Images/pic3.png"Signup Image>
+</div>
+<div class="container" id="signup-form">
+
+    <h2>Signup</h2>
+    <form onsubmit="return validateSignup()">
+        <label for="signup-username">Username</label>
+        <input type="text" id="signup-username" placeholder="Enter your username" required>
+
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" placeholder="Enter your email" required>
+
+        <label for="signup-password">Password</label>
+        <div class="password-wrapper">
+            <input type="password" id="signup-password" placeholder="Enter your password" required>
+            <span class="eye-icon" onclick="togglePasswordVisibility('signup-password')">👁️</span>
+        </div>
+
+        <label for="signup-confirm-password">Confirm Password</label>
+        <div class="password-wrapper">
+            <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
+            <span class="eye-icon" onclick="togglePasswordVisibility('signup-confirm-password')">👁️</span>
+        </div>
+
+        <button type="submit">Signup</button>
+    </form>
+    <div class="switch" style="font-weight: bold;">Already have an account? <a href="#" onclick="showLoginForm()">Login here</a></div>
+</div>
+
+<div class="container" id="login-form" style="display: none;">
+    
+
+    <h2>Login</h2>
+    
+    <form onsubmit="return validateLogin()">
+        <label for="login-username">Email</label>
+        <input type="text" id="login-username" placeholder="Enter your email" required>
+
+        <label for="login-password">Password</label>
+        <div class="password-wrapper">
+            <input type="password" id="login-password" placeholder="Enter your password" required>
+            <span class="eye-icon" onclick="togglePasswordVisibility('login-password')">👁️</span>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+    <div class="forgot-password" style="font-weight: bold;">
+        <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+    </div>
+    <div class="switch" style="font-weight: bold;">Don't have an account? <a href="#" onclick="showSignupForm()">Signup here</a></div>
+</div>
+
+<div class="container" id="forgot-password-form" style="display: none;">
+    <h2>Reset Password</h2>
+    <form onsubmit="return resetPassword()">
+        <label for="reset-email">Enter your email</label>
+        <input type="email" id="reset-email" placeholder="Enter your email" required>
+
+        <label for="reset-new-password">New Password</label>
+        <input type="password" id="reset-new-password" placeholder="Enter new password" required>
+
+        <label for="reset-confirm-password">Confirm New Password</label>
+        <input type="password" id="reset-confirm-password" placeholder="Confirm new password" required>
+
+        <button type="submit">Reset Password</button>
+    </form>
+    <div class="switch" style="font-weight: bold;">Remember your password? <a href="#" onclick="showLoginForm()">Login here</a></div>
+    
+    
+</div>
+
+<script>
+    function showSignupForm() {
+        document.getElementById('signup-form').style.display = 'block';
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('forgot-password-form').style.display = 'none';
+    }
+
+    function showLoginForm() {
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('login-form').style.display = 'block';
+        document.getElementById('forgot-password-form').style.display = 'none';
+    }
+
+    function showForgotPasswordForm() {
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('forgot-password-form').style.display = 'block';
+    }
+
+    function togglePasswordVisibility(id) {
+        const input = document.getElementById(id);
+        if (input.type === 'password') {
+            input.type = 'text';
+        } else {
+            input.type = 'password';
+        }
+    }
+
+    function validateSignup() {
+        const usernameInput = document.getElementById('signup-username');
+        const username = usernameInput.value.trim();
+        const email = document.getElementById('signup-email').value.trim();
+        const password = document.getElementById('signup-password').value;
+        const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+        if (username.startsWith(' ')) {
+            alert('Username cannot start with a space.');
+            return false;
+        }
+
+        const usernameRegex = /^(?![. ])[a-zA-Z]+(?:[.][a-zA-Z]+)*(?: [a-zA-Z]+){0,3}(?<![. ])$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (!usernameRegex.test(username)) {
+            alert('Username should contain only alphabets, no leading spaces, and up to 3 non-consecutive spaces.');
+            return false;
+        }
+
+        if (!emailRegex.test(email)) {
+            alert('Invalid email address.');
+            return false;
+        }
+
+        if (password.length < 6) {
+            alert('Password must be at least 6 characters long.');
+            return false;
+        }
+
+        if (password !== confirmPassword) {
+            alert('Passwords do not match.');
+            return false;
+        }
+
+        const userData = {
+            username: username,
+            email: email,
+            password: password
+        };
+
+        localStorage.setItem('user', JSON.stringify(userData));  // Store user data in localStorage
+        alert('Signup successful!');
+        showLoginForm();
+        return false;
+    }
+
+    function validateLogin() {
+        const username = document.getElementById('login-username').value.trim();  // Trim spaces
+        const password = document.getElementById('login-password').value.trim();  // Trim spaces
+
+        if (username === '' || password === '') {
+            alert('Please fill in both fields.');
+            return false;
+        }
+
+        const storedUserData = JSON.parse(localStorage.getItem('user'));
+
+        // Check if there's no stored user data or if the stored data doesn't match the input
+        if (!storedUserData || storedUserData.email !== username || storedUserData.password !== password) {
+            alert('Invalid email or password.');
+            return false;
+        }
+
+        alert('Login successful!');
+        return true;
+    }
+
+    function forgotPassword() {
+        showForgotPasswordForm();
+    }
+
+    function resetPassword() {
+        const email = document.getElementById('reset-email').value;
+        const newPassword = document.getElementById('reset-new-password').value;
+        const confirmPassword = document.getElementById('reset-confirm-password').value;
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email.');
+            return false;
+        }
+
+        if (newPassword.length < 6) {
+            alert('New password must be at least 6 characters long.');
+            return false;
+        }
+
+        if (newPassword !== confirmPassword) {
+            alert('New passwords do not match.');
+            return false;
+        }
+
+        const storedUserData = JSON.parse(localStorage.getItem('user'));
+        if (!storedUserData || storedUserData.email !== email) {
+            alert('Email not found.');
+            return false;
+        }
+
+        storedUserData.password = newPassword;
+        localStorage.setItem('user', JSON.stringify(storedUserData));
+        alert('Password reset successful!');
+        showLoginForm();
+        return false;
+    }
+</script>
+
+</body>
+</html>
